@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_blank">
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.c14170040.skripsi.ui.home.HomeFragment"
+        android:label="List User"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.c14170040.skripsi.ui.gallery.GalleryFragment"
+        android:label="Assign Sales"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.c14170040.skripsi.ui.slideshow.SlideshowFragment"
+        android:label="Add Sales"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_maps"
+        android:name="com.c14170040.skripsi.ui.maps.MapsFragment"
+        android:label="maps"
+        tools:layout="@layout/fragment_maps"/>
+    <fragment
+        android:id="@+id/nav_blank"
+        android:name="com.c14170040.skripsi.ui.BlankFragment"
+        tools:layout="@layout/fragment_blank"/>
+    <fragment
+        android:id="@+id/nav_route"
+        android:name="com.c14170040.skripsi.ui.route.RouteFragment"
+        tools:layout="@layout/fragment_route"/>
+    <fragment
+        android:id="@+id/nav_lapor"
+        android:name="com.c14170040.skripsi.ui.lapor.LaporFragment"
+        tools:layout="@layout/fragment_lapor"/>
+
+
+
+</navigation>
