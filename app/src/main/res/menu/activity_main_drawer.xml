@@ -27,6 +27,9 @@
             android:id="@+id/nav_lapor"
             android:title="Lapor"/>
         <item
+            android:id="@+id/nav_lihat_lapor"
+            android:title="Lihat Laporan"/>
+        <item
             android:id="@+id/nav_blank"
             android:title="Welcome"/>
     </group>

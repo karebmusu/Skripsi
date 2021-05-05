@@ -26,11 +26,14 @@ class MapsFragment : Fragment() {
         var db = FirebaseFirestore.getInstance()
         db.collection("mesin").get().addOnSuccessListener {
             document ->
+            val boundsBuilder =  LatLngBounds.Builder()
             for(doc in document){
                 val dataf = doc.data as MutableMap<String,String>
                 val latLng = LatLng(dataf.getValue("Latitude").toDouble(),dataf.getValue("Longitude").toDouble())
+                boundsBuilder.include(latLng)
                 googleMap.addMarker(MarkerOptions().position(latLng).title(dataf.getValue("Nama Mesin").toString()).snippet("Lokasi : "+dataf.getValue("Provinsi")))
             }
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(),100,100,0))
         }
 
     }

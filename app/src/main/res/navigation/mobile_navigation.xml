@@ -38,6 +38,10 @@
         android:id="@+id/nav_lapor"
         android:name="com.c14170040.skripsi.ui.lapor.LaporFragment"
         tools:layout="@layout/fragment_lapor"/>
+    <fragment
+        android:id="@+id/nav_lihat_lapor"
+        android:name="com.c14170040.skripsi.ui.lihatlapor.LihatLaporFragment"
+        tools:layout="@layout/fragment_lihat_lapor"/>
 
 
 

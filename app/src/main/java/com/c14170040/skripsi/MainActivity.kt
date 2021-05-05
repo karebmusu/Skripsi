@@ -18,11 +18,12 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-
+var emailuser = ""
+var namauser = ""
+const val API_KeY = "AIzaSyBm-XqprlC4FyC3SIIyA3AB2nBXv9B8pWw"
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_maps,R.id.nav_lapor,R.id.nav_blank,R.id.nav_route), drawerLayout)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_maps,R.id.nav_lihat_lapor,R.id.nav_lapor,R.id.nav_blank,R.id.nav_route), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         if(intent.getStringExtra("typeuser").toString()!="admin"){
@@ -45,12 +46,14 @@ class MainActivity : AppCompatActivity() {
             val inc : MenuItem = nav_Menu.findItem(R.id.nav_home)
             val ind : MenuItem = nav_Menu.findItem(R.id.nav_slideshow)
             val ine : MenuItem = nav_Menu.findItem(R.id.nav_blank)
+            val inf : MenuItem = nav_Menu.findItem(R.id.nav_lihat_lapor)
             Log.d("cektype", intent.getStringExtra("typeuser").toString())
             ina.setVisible(false)
             inb.setVisible(false)
             inc.setVisible(false)
             ind.setVisible(false)
             ine.setVisible(false)
+            inf.setVisible(false)
         }
         else if(intent.getStringExtra("typeuser").toString()=="admin"){
             val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
@@ -70,6 +73,8 @@ class MainActivity : AppCompatActivity() {
         val unama = findViewById<TextView>(R.id.uname)
         val uemail = findViewById<TextView>(R.id.uemail)
         unama.setText(intent.getStringExtra("namauser"))
+        emailuser+=intent.getStringExtra("emailuser").toString()
+        namauser+=intent.getStringExtra("namauser").toString()
         uemail.setText(intent.getStringExtra("emailuser"))
         return true
     }

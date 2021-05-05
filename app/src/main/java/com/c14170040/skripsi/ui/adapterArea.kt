@@ -2,11 +2,13 @@ package com.c14170040.skripsi.ui
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.c14170040.skripsi.R
 import kotlinx.android.parcel.Parcelize
@@ -46,6 +48,16 @@ class adapterArea(private val listArea : ArrayList<area>) : RecyclerView.Adapter
         holder.sEmailSales.setText(larea.emailsales)
         holder.sNama.setOnClickListener{
             listener?.buttontap(it,larea)
+        }
+        holder.sNama.setOnClickListener {
+            var pI = Intent(holder.itemView.context, AssignActivity::class.java)
+            pI.putExtra("namaArea",larea.nama.toString())
+            pI.putExtra("jumlahMesin",larea.jumlahmesin.toString())
+            pI.putExtra("namaSales",larea.sales.toString())
+            pI.putExtra("emailSales",larea.emailsales.toString())
+            startActivity(holder.itemView.context,pI,null)
+
+
         }
     }
 

@@ -143,8 +143,8 @@ class GalleryFragment : Fragment(), adapterArea.RecyclerViewClickListener {
 
         showAlertDialog(datArea)
     }
-
-
 }
+
+
 
 

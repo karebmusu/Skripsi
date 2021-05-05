@@ -6,6 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.c14170040.skripsi.R
+import com.c14170040.skripsi.namauser
+import com.c14170040.skripsi.sP
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.fragment_lapor.*
+import java.time.LocalDateTime
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,6 +41,23 @@ class LaporFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_lapor, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        var db = FirebaseFirestore.getInstance()
+
+        btSaveLapor.setOnClickListener {
+            val data = hashMapOf(
+                    "Nama Sales" to namauser,
+                    "Email Sales" to sP.getString("keyEmail", null).toString(),
+                    "Tanggal" to LocalDateTime.now(),
+                    "Nama Mesin" to etNoMesin.text.toString(),
+                    "Jenis Mesin" to etJenisMesin.text.toString(),
+                    "Catatan" to etCatatanLapor.text.toString()
+            )
+
+        }
+        super.onViewCreated(view, savedInstanceState)
     }
 
     companion object {
