@@ -11,10 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.c14170040.skripsi.R
-import com.c14170040.skripsi.adapaterUser
-import com.c14170040.skripsi.user
-import com.c14170040.skripsi.varGlobal
+import com.c14170040.skripsi.*
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -47,9 +44,21 @@ class HomeFragment : Fragment(), adapaterUser.RecylerViewClickListener {
                         datau.getValue("email"),
                         datau.getValue("nohp")
                     )
-                    if(datau.getValue("type")!="admin")
+                    if(typeuser=="superadmin")
                     {
-                        vGlobal.adddata(data)
+                        if(datau.getValue("type") == "admin")
+                        {
+                            vGlobal.adddata(data)
+                        }
+                    }
+                    else
+                    {
+                        if(datau.getValue("type")!="superadmin" && datau.getValue("type")!="admin")
+                        {
+                            if(datau.getValue("supervisor").toString() == namauser) {
+                                vGlobal.adddata(data)
+                            }
+                        }
                     }
                 }
                 tampil = vGlobal.getdata()

@@ -133,7 +133,6 @@ data class Duration(
         @SerializedName( "value")
         val value: Int
 )
-
 data class EndLocation(
 
         @SerializedName( "lng")
@@ -142,7 +141,6 @@ data class EndLocation(
         @SerializedName( "lat")
         val lat: Double
 )
-
 data class LegsItem(
 
         @SerializedName( "duration")

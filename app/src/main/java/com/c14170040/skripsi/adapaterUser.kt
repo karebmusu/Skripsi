@@ -1,11 +1,14 @@
 package com.c14170040.skripsi
 
+import android.content.Intent
 import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.c14170040.skripsi.ui.EditUser
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.parcel.Parcelize
 import kotlinx.android.synthetic.main.itemuser.view.*
@@ -35,6 +38,11 @@ class adapaterUser(private val listUser : ArrayList<user>) : RecyclerView.Adapte
         var luser = listUser[position]
         holder.sEmail.setText(luser.email)
         holder.sNama.setText(luser.nama)
+        holder.sNama.setOnClickListener {
+            val pI = Intent(holder.itemView.context,EditUser::class.java)
+            pI.putExtra("user",luser)
+            startActivity(holder.itemView.context,pI,null)
+        }
     }
 
     override fun getItemCount(): Int {

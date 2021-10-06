@@ -1,44 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.lapor.LaporFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <EditText
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/etNoMesin"
-            android:hint="Nomor Mesin"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/etPemilik"
-            android:hint="Nama Pemilik"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/etJenisMesin"
-            android:hint="Jenis Mesin"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/etCatatanLapor"
-            android:hint="Catatan"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Simpan"
-            android:id="@+id/btSaveLapor"/>
+            <EditText
+                android:id="@+id/etNamaMesin"
+                android:layout_width="356dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="38dp"
+                android:layout_marginEnd="28dp"
+                android:hint="Nomor Mesin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+            <EditText
+                android:id="@+id/etLat"
+                android:layout_width="356dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="28dp"
+                android:hint="Nama Pemilik"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etNamaMesin" />
 
+            <EditText
+                android:id="@+id/etLong"
+                android:layout_width="356dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="34dp"
+                android:layout_marginEnd="28dp"
+                android:hint="Jenis Mesin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etLat" />
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/etProvinsi"
+                android:layout_width="356dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="28dp"
+                android:hint="Catatan"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etLong" />
+
+            <Button
+                android:id="@+id/bt_upload"
+                android:layout_width="356dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="78dp"
+                android:layout_marginEnd="28dp"
+                android:text="Pilih foto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etProvinsi" />
+
+            <Button
+                android:id="@+id/bt_addMesin"
+                android:layout_width="356dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="34dp"
+                android:layout_marginEnd="28dp"
+                android:text="Simpan"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bt_upload" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="165dp"
+                android:layout_marginTop="38dp"
+                android:layout_marginEnd="165dp"
+                android:fontFamily="@font/amaranth"
+                android:text="Lapor"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
 
 </FrameLayout>

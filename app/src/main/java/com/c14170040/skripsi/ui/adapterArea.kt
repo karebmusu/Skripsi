@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.c14170040.skripsi.R
+import com.c14170040.skripsi.typeuser
 import kotlinx.android.parcel.Parcelize
 import kotlinx.android.synthetic.main.itemarea.view.*
 import kotlinx.android.synthetic.main.itemuser.view.*
@@ -44,20 +45,27 @@ class adapterArea(private val listArea : ArrayList<area>) : RecyclerView.Adapter
         var larea = listArea[position]
         holder.sNama.setText(larea.nama)
         holder.sJumlahMesin.setText("Jumlah Mesin : "+larea.jumlahmesin.toString())
-        holder.sSales.setText("Sales : "+larea.sales)
-        holder.sEmailSales.setText(larea.emailsales)
+        if(typeuser=="superadmin")
+        {
+            holder.sSales.setText("Supervisor : "+larea.sales)
+            holder.sEmailSales.setText("")
+        }
+        else
+        {
+            holder.sSales.setText("Sales : "+larea.sales)
+            holder.sEmailSales.setText(larea.emailsales)
+        }
         holder.sNama.setOnClickListener{
             listener?.buttontap(it,larea)
         }
         holder.sNama.setOnClickListener {
+
             var pI = Intent(holder.itemView.context, AssignActivity::class.java)
             pI.putExtra("namaArea",larea.nama.toString())
             pI.putExtra("jumlahMesin",larea.jumlahmesin.toString())
             pI.putExtra("namaSales",larea.sales.toString())
             pI.putExtra("emailSales",larea.emailsales.toString())
             startActivity(holder.itemView.context,pI,null)
-
-
         }
     }
 

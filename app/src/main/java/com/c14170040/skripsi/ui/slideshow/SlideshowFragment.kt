@@ -5,12 +5,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.c14170040.skripsi.R
+import com.c14170040.skripsi.namauser
+import com.c14170040.skripsi.typeuser
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_slideshow.*
 
@@ -30,12 +29,18 @@ class SlideshowFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         bt_add.setOnClickListener {
             val db = FirebaseFirestore.getInstance()
+            var type = "user"
+            if(typeuser=="superadmin")
+            {
+                type="admin"
+            }
             val data = hashMapOf(
                 "email" to et_email.text.toString(),
                 "password" to et_passwordadduser.text.toString(),
                 "nama" to et_nama.text.toString(),
                 "nohp" to et_hp.text.toString(),
-                "type" to "user"
+                "type" to type,
+                "supervisor" to namauser
             )
             db.collection("user").document(et_email.text.toString()).set(data)
                 .addOnSuccessListener {

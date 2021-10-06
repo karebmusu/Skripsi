@@ -1,16 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="600dp">
 
-    <Spinner
-        android:id="@+id/spin_sales"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:entries="@array/rating"
-        />
+    <TextView
+        android:id="@+id/tvDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="117dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="117dp"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif"
+        android:text="Ubah Status menjadi selesai"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/et_Pemilik"
+        android:layout_width="256dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginEnd="28dp"
+        android:hint="Nama Pemilik"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_NamaArea" />
 
-</LinearLayout>
+    <EditText
+        android:id="@+id/et_JenisMesin"
+        android:layout_width="256dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="28dp"
+        android:hint="Jenis Mesin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Pemilik" />
+
+    <EditText
+        android:id="@+id/et_Catatan"
+        android:layout_width="256dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="28dp"
+        android:hint="Catatan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_JenisMesin" />
+
+    <TextView
+        android:id="@+id/tv_NamaMesin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="145dp"
+        android:fontFamily="@font/allerta_stencil"
+        android:text="Nama Mesin"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDialog" />
+
+    <TextView
+        android:id="@+id/tv_NamaArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="145dp"
+        android:fontFamily="@font/allerta_stencil"
+        android:text="Area"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_NamaMesin" />
+
+    <Button
+        android:id="@+id/bt_uploadfoto"
+        android:layout_width="256dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="28dp"
+        android:text="Pilih Foto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Catatan" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
