@@ -130,6 +130,7 @@ class LihatLaporFragment : Fragment() {
                     dialogFilterArea.dismiss()
                 }
             }
+            
             dialogFilter.bt__Sales.setOnClickListener {
                 dialogFilter.dismiss()
                 val dialogFilterSales = AlertDialog.Builder(context).setTitle("Filter by Sales")
